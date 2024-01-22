@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex w-full flex-col items-center px-6 py-5">
     <div class="!w-[992px] max-w-full space-y-4">
@@ -53,9 +51,9 @@
           </p>
         </div>
 
-        <div class="item flex w-full flex-col items-center justify-center">
+        <div class="item flex w-full flex-col items-center">
           <h6 class="item-header">Contact Info</h6>
-          <div class="">
+          <div class="mt-2">
             <a href="tel:0442422577" class="hover:underline"
               >+358 44 242 2577
             </a>

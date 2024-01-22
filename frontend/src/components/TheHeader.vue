@@ -2,7 +2,7 @@
 
 <template>
   <header
-    class="flex h-14 w-full items-center space-x-2 border-b px-[25%] text-xl font-semibold text-[#0047FF]"
+    class="flex h-14 w-full items-center space-x-2 border-b px-6 text-xl font-semibold text-[#0047FF] lg:px-[20%]"
   >
     <router-link
       to="/"
@@ -13,20 +13,20 @@
       Bio
     </router-link>
     <router-link
-      to="/blog"
-      :class="{
-        'after:!h-1 after:!w-full': $route.path === '/blog',
-      }"
-    >
-      Blog
-    </router-link>
-    <router-link
       to="/projects"
       :class="{
         'after:!h-1 after:!w-full': $route.path === '/projects',
       }"
     >
       Projects
+    </router-link>
+    <router-link
+      to="/blog"
+      :class="{
+        'after:!h-1 after:!w-full': $route.path === '/blog',
+      }"
+    >
+      Blog
     </router-link>
   </header>
 </template>
