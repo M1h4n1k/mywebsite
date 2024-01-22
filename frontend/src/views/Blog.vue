@@ -2,7 +2,7 @@
 const posts = [
   {
     _id: "1",
-    img: "https://picsum.photos/seed/1/1080/180",
+    img: "https://picsum.photos/seed/1/1080/200",
     title: "Some name",
     caption:
       "In tempor pulvinar sollicitudin. In hac habitasse platea dictumst. " +
@@ -15,7 +15,7 @@ const posts = [
   },
   {
     _id: "2",
-    img: "https://picsum.photos/seed/2/1080/180",
+    img: "https://picsum.photos/seed/2/1080/200",
     title: "Some name 2",
     caption:
       "In tempor pulvinar sollicitudin. In hac habitasse platea dictumst. " +
