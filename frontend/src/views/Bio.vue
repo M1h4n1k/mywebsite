@@ -81,10 +81,10 @@
           </div>
         </div>
       </div>
-      <h1 class="ml-4 text-3xl font-semibold text-[#0047FF]">
+      <h1 class="!mt-8 text-3xl font-semibold text-[#0047FF]">
         Working experience
       </h1>
-      <div class="flex space-x-8">
+      <div class="!mt-3 flex space-x-8">
         <div class="item relative w-36 space-y-2">
           <div>
             <h6 class="text-lg font-bold leading-5">Software developer</h6>
