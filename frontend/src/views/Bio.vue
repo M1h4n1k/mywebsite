@@ -137,7 +137,7 @@
 <style scoped>
 .item {
   width: fit-content;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   background-color: rgb(243 244 246);
   padding: 1rem 1.5rem;
   min-width: 250px;

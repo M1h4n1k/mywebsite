@@ -40,10 +40,11 @@ const projects = [
 <template>
   <div class="flex w-full flex-wrap gap-4 px-6 py-4">
     <div
-      class="h-fit w-[300px] max-w-[600px] grow rounded-2xl bg-[#f3f4f6] px-4 py-6"
+      class="h-fit w-1/3 min-w-[300px] max-w-[600px] grow rounded-3xl bg-[#f3f4f6] px-4 py-6"
       v-for="project of projects"
+      :key="project._id"
     >
-      <div :key="project._id" class="flex">
+      <div class="flex">
         <img height="70" width="70" alt="" class="rounded" :src="project.img" />
         <div class="ml-4 flex w-full flex-col justify-center font-semibold">
           <h2 class="text-2xl text-[#0047FF]">
@@ -71,5 +72,3 @@ const projects = [
     </div>
   </div>
 </template>
-
-<style scoped></style>
