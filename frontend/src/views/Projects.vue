@@ -1,40 +1,18 @@
 <script setup lang="ts">
-const projects = [
-  {
-    _id: "1",
-    img: "https://picsum.photos/seed/1/300/300",
-    title: "Some name",
-    subtitle: "Some subtitle",
-    description:
-      "In tempor pulvinar sollicitudin. In hac habitasse platea dictumst. " +
-      "In non aliquam nulla. Cras arcu tellus, lobortis condimentum justo id," +
-      " posuere finibus nibh. Mauris quis justo ligula. Praesent sit amet urna" +
-      " sed lacus gravida pretium. Fusce ac mi non nulla faucibus tempus a ac ex." +
-      " Vestibulum lacinia, risus vitae interdum commodo, metus neque posuere nisl," +
-      " maximus condimentum metus risus id felis. ",
-    button: {
-      text: "Read more",
-      link: "https://goo.gle",
-    },
-  },
-  {
-    _id: "2",
-    img: "https://picsum.photos/seed/2/300/300",
-    title: "Some name 2",
-    subtitle: "Some subtitle 2",
-    description:
-      "In tempor pulvinar sollicitudin. In hac habitasse platea dictumst. " +
-      "In non aliquam nulla. Cras arcu tellus, lobortis condimentum justo id," +
-      " posuere finibus nibh. Mauris quis justo ligula. Praesent sit amet urna" +
-      " sed lacus gravida pretium. Fusce ac mi non nulla faucibus tempus a ac ex." +
-      " Vestibulum lacinia, risus vitae interdum commodo, metus neque posuere nisl," +
-      " maximus condimentum metus risus id felis. ",
-    button: {
-      text: "Read more",
-      link: "https://goo.gle",
-    },
-  },
-];
+import { Project } from "@/types.ts";
+import { onMounted, ref } from "vue";
+import type { Ref } from "vue";
+const fetchProjects = async () => {
+  return await fetch(`${import.meta.env.VITE_API_URL}/projects/`)
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+};
+let projects: Ref<Project[]> = ref([]);
+onMounted(async () => {
+  projects.value = await fetchProjects();
+});
 </script>
 
 <template>
@@ -64,7 +42,7 @@ const projects = [
           class="mt-2 inline-block w-[70%] cursor-pointer rounded bg-[#0047FF] px-4 py-2 text-center font-semibold text-white hover:brightness-125"
           :to="project.button.link"
           :href="project.button.link"
-          target="_blank"
+          :target="project.button.link.startsWith('http') ? '_blank' : ''"
         >
           {{ project.button.text }}
         </component>

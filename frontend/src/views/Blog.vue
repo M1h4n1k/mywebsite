@@ -1,32 +1,19 @@
-<script setup lang="ts">
-const posts = [
-  {
-    _id: "1",
-    img: "https://picsum.photos/seed/1/1080/200",
-    title: "Some name",
-    caption:
-      "In tempor pulvinar sollicitudin. In hac habitasse platea dictumst. " +
-      "In non aliquam nulla. Cras arcu tellus, lobortis condimentum justo id," +
-      " posuere finibus nibh. Mauris quis justo ligula. Praesent sit amet urna" +
-      " sed lacus gravida pretium. Fusce ac mi non nulla faucibus tempus a ac ex." +
-      " Vestibulum lacinia, risus vitae interdum commodo, metus neque posuere nisl," +
-      " maximus condimentum metus risus id felis. ",
-    link: "/blog/1",
-  },
-  {
-    _id: "2",
-    img: "https://picsum.photos/seed/2/1080/200",
-    title: "Some name 2",
-    caption:
-      "In tempor pulvinar sollicitudin. In hac habitasse platea dictumst. " +
-      "In non aliquam nulla. Cras arcu tellus, lobortis condimentum justo id," +
-      " posuere finibus nibh. Mauris quis justo ligula. Praesent sit amet urna" +
-      " sed lacus gravida pretium. Fusce ac mi non nulla faucibus tempus a ac ex." +
-      " Vestibulum lacinia, risus vitae interdum commodo, metus neque posuere nisl," +
-      " maximus condimentum metus risus id felis. ",
-    link: "/blog/2",
-  },
-];
+<script lang="ts" setup>
+import { Post } from "@/types.ts";
+import { onMounted, ref } from "vue";
+import type { Ref } from "vue";
+
+let posts: Ref<Post[]> = ref([]);
+const fetchPosts = async () => {
+  return await fetch(`${import.meta.env.VITE_API_URL}/posts/`)
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+};
+onMounted(async () => {
+  posts.value = await fetchPosts();
+});
 </script>
 
 <template>
@@ -51,7 +38,7 @@ const posts = [
       <div class="mt-2 flex w-full justify-end">
         <router-link
           class="mt-2 inline-block w-[150px] cursor-pointer rounded bg-[#0047FF] px-4 py-2 text-center font-semibold text-white hover:brightness-125"
-          :to="post.link"
+          :to="'/blog/' + post._id"
         >
           Read more
         </router-link>

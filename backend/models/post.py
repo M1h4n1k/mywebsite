@@ -18,7 +18,7 @@ class PostModel(BaseModel):
             "example": {
                 "img": "https://picsum.photos/seed/1/300/300",
                 "title": "Lorem Ipsum",
-                "caption": "Short description of the project",
+                "caption": "Some short description of the post",
                 "blocks": [
                     {
                         "title": "Introduction",
