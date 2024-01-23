@@ -23,7 +23,13 @@ onMounted(async () => {
       :key="project._id"
     >
       <div class="flex">
-        <img height="70" width="70" alt="" class="rounded" :src="project.img" />
+        <img
+          height="70"
+          width="70"
+          alt=""
+          class="h-[70px] w-[70px] rounded"
+          :src="project.img"
+        />
         <div class="ml-4 flex w-full flex-col justify-center font-semibold">
           <h2 class="text-2xl text-[#0047FF]">
             {{ project.title }}

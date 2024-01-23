@@ -3,6 +3,7 @@ const Bio = () => import("@/views/Bio.vue");
 const Blog = () => import("@/views/Blog.vue");
 const Projects = () => import("@/views/Projects.vue");
 const Post = () => import("@/views/Post.vue");
+const Admin = () => import("@/views/Admin.vue");
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/blog/:_id",
     name: "Post",
     component: Post,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
   },
 ];
 

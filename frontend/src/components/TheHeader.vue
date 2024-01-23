@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <header
     class="flex h-14 w-full items-center space-x-2 border-b px-6 text-xl font-semibold text-[#0047FF] lg:px-[20%]"
