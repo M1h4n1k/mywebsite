@@ -5,7 +5,7 @@ PyObjectId = Annotated[str, BeforeValidator(str)]
 
 
 class PostModel(BaseModel):
-    id: Optional[PyObjectId] = Field(alias="_id", default=None)
+    id: Optional[PyObjectId] = Field(alias='_id', default=None)
     img: str = Field(...)
     title: str = Field(...)
     caption: str = Field(...)
@@ -15,17 +15,17 @@ class PostModel(BaseModel):
         populate_by_name=True,
         arbitrary_types_allowed=True,
         json_schema_extra={
-            "example": {
-                "img": "https://picsum.photos/seed/1/300/300",
-                "title": "Lorem Ipsum",
-                "caption": "Some short description of the post",
-                "blocks": [
+            'example': {
+                'img': 'https://picsum.photos/seed/1/300/300',
+                'title': 'Lorem Ipsum',
+                'caption': 'Some short description of the post',
+                'blocks': [
                     {
-                        "title": "Introduction",
-                        "text": [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                            "Sed non risus. Suspendisse lectus tortor, dignissim sit amet, "
-                            "adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. "
+                        'title': 'Introduction',
+                        'text': [
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                            'Sed non risus. Suspendisse lectus tortor, dignissim sit amet, '
+                            'adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. '
                         ]
                     },
                 ]
