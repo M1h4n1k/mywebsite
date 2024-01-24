@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import AdminImageInput from "@/components/AdminImageInput.vue";
 
 const props = defineProps({
   auth: String,
@@ -26,20 +27,16 @@ const createPost = async () => {
     },
     body: JSON.stringify(post.value),
   }).then((res) => {
-    if (res.status !== 200) {
+    if (res.status !== 201) {
       alert("Error");
+      return;
     }
+    alert("Success");
   });
 };
 </script>
 
 <template>
-  <input
-    class="w-[700px] rounded bg-[#F3F4F6] px-2 py-1 text-lg"
-    type="text"
-    placeholder="Picture url"
-    v-model="post.img"
-  />
   <div class="mt-4 w-[700px]">
     <input
       class="w-full rounded bg-[#F3F4F6] px-2 py-1 text-3xl font-semibold"
@@ -47,13 +44,24 @@ const createPost = async () => {
       placeholder="Post title"
       v-model="post.title"
     />
-    <img
-      height="300px"
-      width="100%"
-      class="mt-2 h-[300px] w-full rounded-lg object-cover"
-      :src="post.img"
-      alt=""
-    />
+
+    <AdminImageInput
+      :auth="auth"
+      id="post"
+      @uploaded="
+        (e) => {
+          post.img = e;
+        }
+      "
+    >
+      <img
+        height="300px"
+        width="100%"
+        class="mt-2 h-[300px] w-full cursor-pointer rounded-lg object-cover"
+        :src="post.img"
+        alt=""
+      />
+    </AdminImageInput>
     <textarea
       class="mt-2 h-28 w-full rounded bg-[#F3F4F6] px-2 py-1"
       placeholder="Caption"

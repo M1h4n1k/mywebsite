@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import AdminImageInput from "@/components/AdminImageInput.vue";
 const props = defineProps({
   auth: String,
 });
@@ -25,7 +26,7 @@ const createProject = async () => {
     },
     body: JSON.stringify(project.value),
   }).then((res) => {
-    if (res.status !== 200) {
+    if (res.status !== 201) {
       alert("Error");
     }
   });
@@ -33,21 +34,25 @@ const createProject = async () => {
 </script>
 
 <template>
-  <input
-    class="w-full rounded bg-[#F3F4F6] px-2 py-1 text-lg"
-    type="text"
-    placeholder="Picture url"
-    v-model="project.img"
-  />
   <div class="mt-4 h-fit w-[600px] grow rounded-3xl bg-[#f3f4f6] px-4 py-6">
     <div class="flex">
-      <img
-        height="70"
-        width="70"
-        alt=""
-        class="h-[70px] w-[70px] rounded"
-        :src="project.img"
-      />
+      <AdminImageInput
+        :auth="auth"
+        id="project"
+        @uploaded="
+          (e) => {
+            project.img = e;
+          }
+        "
+      >
+        <img
+          height="70"
+          width="70"
+          alt=""
+          class="h-[70px] w-[70px] cursor-pointer rounded"
+          :src="project.img"
+        />
+      </AdminImageInput>
       <div class="ml-4 flex w-full flex-col justify-center font-semibold">
         <input
           class="rounded px-2 py-1 text-2xl text-[#0047FF]"
